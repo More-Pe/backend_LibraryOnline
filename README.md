@@ -125,3 +125,28 @@ From here we can use NPM RUN DEV to start our server with npm run dev :)
     for GET:
     a) obtain the information from the DB
     b) return the information
+
+    _________________________________
+
+    Enciptar contraseña
+
+    1. Descargar librería:
+    ```
+    npm i bcrypt
+    ```
+
+    2. Importar en el archivo controller que sea necesario, en este caso auth.controller
+    ```
+    import bcrypt from 'bcrypt':
+    ```
+
+    3. Instalar los tipos de bcrypt:
+    ```
+    npm i --save-dev @types/bcrypt
+
+    4. Encriptar la contraseña
+
+    ```
+    const hashedPassword = bcrypt.hashSync(password, 10);
+    ```
+    Los argumentos son la contraseña y el nro de veces que se encriptará.
