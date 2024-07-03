@@ -1,9 +1,10 @@
 import 'dotenv/config';
 import express from 'express';
-import { createAuthor, deleteAuthorById, updateAuthorById } from './controllers/auto.controller';
-import { createBooks, deleteBookById, updateBookById } from './controllers/books.controller';
-import { createUser, deleteUserById, updateUserById } from './controllers/users.controller';
+import { createAuthor, deleteAuthorById, updateAuthorById } from './controllers/auto.controller'
+import { createBooks, deleteBookById, getAllBooks, updateBookById } from './controllers/books.controller';
+import { getAllUsers } from './controllers/users.controller';
 import { AppDataSource } from './database/db';
+// import { formatDiagnostic } from 'typescript';
 
 
 const app = express();
@@ -40,9 +41,7 @@ app.delete('/authors/:id', deleteAuthorById);
 
 //BOOKS entitiy included
 
-app.get('/books', (req, res) => {
-    res.send('GET ALL BOOKS')
-})
+app.get('/books', getAllBooks);
 
 app.post('/books', createBooks); 
 
@@ -60,19 +59,17 @@ console.log(error)
 
 //USERS entitiy included
 
-app.get('/users', (req, res) => {      //show all users
-    res.send(req.body)
-})
+app.get('/users',getAllUsers)
 
-app.put('/users/:id', updateUserById);
+// app.put('/users/:id', updateUserById);
 
 app.get('/users', (req, res) => {      //show all users
     res.send('Detalles del perfil')
 })
 
-app.post('/users', createUser);
+// app.post('/users', createUser);
 
-app.delete('/users/:id', deleteUserById);
+// app.delete('/users/:id', deleteUserById);
 
 app.post('/users', );
 
