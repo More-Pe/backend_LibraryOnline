@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { Author } from "../database/models/Author";
 export const createAuthor = async (req: Request, res: Response) => {
   try {
-    // 1. recuperar la informacion de la req
+    // 1. Recuperar la informacion de la req
     const name = req.body.name;
     const nationality = req.body.nationality;
     // 2. Validar informacion
@@ -22,7 +22,7 @@ export const createAuthor = async (req: Request, res: Response) => {
         }
       )
     }
-    // 3. Tratar informacion
+    // 3. Tratar información si es necesario
     // 4. Atacar a la bd
     const newAuthor = await Author.create(
       {
@@ -103,7 +103,7 @@ export const updateAuthorById = async (req: Request, res: Response) => {
 }
 export const deleteAuthorById = async (req: Request, res: Response) => {
   try {
-    // 1. recupera id
+    // 1. Recuperar id
     const authorIdToDelete = Number(req.params.id)
     // 2. Eliminar registro de la bd
     const authorDeleted = await Author.delete(authorIdToDelete)

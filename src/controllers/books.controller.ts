@@ -60,7 +60,20 @@ export const createBooks =  async (req: Request, res: Response) => {
 export const getAllBooks = async (req: Request, res: Response) => {
 try {
     //1. Recupero la info
-    const  books = await Book.find()
+    const books = await Book.find(
+        {
+            select: {
+                title: true,
+                description: true,
+                author: {
+                    name: true
+                }
+            },
+            relations: {
+                author: true
+            }
+        }
+    )
 
     //2. Dar respuesta
     res.json({
