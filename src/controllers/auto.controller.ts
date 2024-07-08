@@ -50,7 +50,17 @@ export const createAuthor = async (req: Request, res: Response) => {
 export const getAllAuthors = async(req: Request, res: Response) => {
   try {
     // 1. Recuperar la info de la BD
-    const authors = await Author.find()
+    let limit = Number(req.query.limit) > 100 ? 5 : Number(req.query.limit)//Elige la cantidad de autores que muestra, por defecto son 5
+    const page = Number(req.query.page) || 1 //Elige qué página muestra, por defecto la 1
+    
+    // if(limit>100){
+    //   limit=10
+    // } Esto es lo mismo que se hizo arriba con la ternaria
+
+    const authors = await Author.find({
+      skip: (page-1)*limit,
+      take: limit
+    })
     // 2. Responder la info de la bd
     res.json(
       {
