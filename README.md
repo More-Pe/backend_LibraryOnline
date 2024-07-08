@@ -232,3 +232,5 @@ To encrypt user passwords into hash code
 49. Check if the endpoint is working by passing the hash code into Auth Bearer space 
 
 50. Include auth(middleware) with the new token option in server.ts
+
+# Credits and acknowledgments to my colleague Yoana Stemanova
