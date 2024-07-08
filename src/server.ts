@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import { createAuthor, deleteAuthorById, updateAuthorById, getAllAuthors } from './controllers/auto.controller'
+import { createAuthor, deleteAuthorById, updateAuthorById, getAllAuthors } from './controllers/author.controller'
 import { createBooks, updateBookById, deleteBookById, getAllBooks } from './controllers/books.controller';
 import { getAllUsers, getUserFavouritesBooks, getUserProfile } from './controllers/users.controller';
 import { login, register } from './controllers/auth.controller'
