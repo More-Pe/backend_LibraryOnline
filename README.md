@@ -233,4 +233,4 @@ To encrypt user passwords into hash code
 
 50. Include auth(middleware) with the new token option in server.ts
 
-# Credits and acknowledgments to my colleague Yoana Stemanova
+### Credits and acknowledgments to my colleague Yoana Stemanova
