@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import { Request, Response } from "express";
 import { User } from "../database/models/User";
@@ -6,24 +6,28 @@ import { User } from "../database/models/User";
 export const register = async (req: Request, res: Response) => {
   try {
     // 1. recuperar la info
-    const email = req.body.email;
-    const password = req.body.password;
+    const email = req.body.email
+    const password = req.body.password
 
     // 2. validar la info
     if (!email || !password) {
-      return res.json(400).json({
-        success: false,
-        message: "Email and password are required",
-      });
+      return res.json(400).json(
+        {
+          success: false,
+          message: "Email and password are required"
+        }
+      )
     }
 
     // TODO validar formato email
 
     if (password.length < 8 || password.length > 12) {
-      return res.status(400).json({
-        success: false,
-        message: "Password is not valid, 8 to 12 charachters must be needed",
-      });
+      return res.status(400).json(
+        {
+          success: false,
+          message: "Password is not valid, 8 to 12 charachters must be needed"
+        }
+      )
     }
 
     // 3. tratar la info si hace falta
@@ -34,28 +38,34 @@ export const register = async (req: Request, res: Response) => {
     const newUser = await User.create(
       {
         email: email,
-        password: hashedPassword,
+        password: hashedPassword
       }
       // {
       //   email,
       //   password
       // }
-    ).save();
+    ).save()
+
+    // 4.5 Send welcome email to user
 
     // 5. responder
-    res.status(201).json({
-      success: true,
-      message: "user registered",
-      data: newUser,
-    });
+    res.status(201).json(
+      {
+        success: true,
+        message: "user registered",
+        data: newUser
+      }
+    )
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "user cant be registered",
-      error: error,
-    });
+    res.status(500).json(
+      {
+        success: false,
+        message: "user cant be registered",
+        error: error
+      }
+    )
   }
-};
+}
 
 export const login = async (req: Request, res: Response) => {
   try {
