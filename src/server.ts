@@ -7,7 +7,17 @@ import { login, register } from './controllers/auth.controller'
 import { AppDataSource } from './database/db';
 import { auth } from './middlewares/auth';
 import { isAdmin } from './middlewares/isAdmin';
+import cors from 'cors';
+
+
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:5173',  // request origin URL
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // allowed methods in the request
+  credentials: true // allows session cookies from browser to pass through
+}));
+
 //middleware
 app.use(express.json())
 const PORT = process.env.PORT || 4000
@@ -27,7 +37,7 @@ app.put('/authors/:id', updateAuthorById)
 app.delete('/authors/:id', deleteAuthorById)
 app.get('/authors', auth, getAllAuthors)
 // BOOKS
-app.get('/books', )
+app.get('/books', getAllBooks)
 app.post('/books', auth, createBooks)
 app.put('/books', )
 app.delete('/books', )

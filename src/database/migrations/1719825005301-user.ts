@@ -17,7 +17,8 @@ export class User1719825005301 implements MigrationInterface {
                     {
                         name: "name",
                         type: "varchar",
-                        length: "255"
+                        length: "255",
+                        isNullable: true
                     },
                     {
                         name: "email",
@@ -36,7 +37,7 @@ export class User1719825005301 implements MigrationInterface {
                         name: "is_active",
                         type: "boolean",
                         default: true,
-                        isNullable: false
+                        isNullable: true
                     },
                     {
                         name: "role",
