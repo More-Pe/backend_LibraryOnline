@@ -56,7 +56,7 @@ app.put('/books', auth, isAdmin, updateBookById);
 app.delete('/books', auth, isAdmin, deleteBookById);
 // USER
 app.get('/user', auth, isAdmin, getAllUsers);
-app.get('/users/myprofile', auth, getUserProfile);
+app.get('/profile', auth, getUserProfile);
 app.get('/users/favourites', auth, getUserFavouritesBooks);
 // AUTH
 app.post('/register', register);
