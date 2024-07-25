@@ -136,7 +136,7 @@ export const login = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: "user cant be logged",
+      message: "User cant be logged",
       error: error
     })
   }

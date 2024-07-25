@@ -16,6 +16,7 @@ import {
 	getAllUsers,
 	getUserFavouritesBooks,
 	getUserProfile,
+	updateUserProfile,
 } from './controllers/users.controller';
 import { login, register } from './controllers/auth.controller';
 import { AppDataSource } from './database/db';
@@ -55,9 +56,10 @@ app.post('/books', auth, isAdmin, createBooks);
 app.put('/books', auth, isAdmin, updateBookById);
 app.delete('/books', auth, isAdmin, deleteBookById);
 // USER
-app.get('/user', auth, isAdmin, getAllUsers);
+app.get('/users', auth, isAdmin, getAllUsers);
 app.get('/profile', auth, getUserProfile);
 app.get('/users/favourites', auth, getUserFavouritesBooks);
+app.put('/update', auth, updateUserProfile)
 // AUTH
 app.post('/register', register);
 app.post('/login', login);
