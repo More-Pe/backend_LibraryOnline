@@ -24,7 +24,8 @@
 
 4.  ``` npm i typescript -d ``` (install typescript with DEV dependancy)
 
-5.  ``` npm i --save-dev @types/express @types-node -D ``` (install types)
+5.  ```npm install @types/express --save-dev``` ```npm install @types/node --save-dev```
+(install types)
 
 6.  ``` npx tsc --init ```
 
@@ -39,7 +40,7 @@
     "build": "tsc"
     ```
 
-9.  ``` npm tsc ``` (to compile all files from TS to JS)
+9.  ``` npx tsc ``` (to compile all files from TS to JS)
 
 10. ``` npm i nodemon -D ``` (to watch the TS file and compile automaticly)
 
